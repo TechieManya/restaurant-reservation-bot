@@ -1,0 +1,14 @@
+{
+  "items": [
+    {"id": 1, "n": "Margherita Pizza", "c": "Pizza", "p": 12.99, "v": true, "s": 0},
+    {"id": 2, "n": "Pepperoni Pizza", "c": "Pizza", "p": 14.99, "v": false, "s": 1},
+    {"id": 3, "n": "Caesar Salad", "c": "Starter", "p": 8.50, "v": true, "s": 0},
+    {"id": 4, "n": "Garlic Bread", "c": "Starter", "p": 6.00, "v": true, "s": 0},
+    {"id": 5, "n": "Grilled Salmon", "c": "Main", "p": 18.99, "v": false, "s": 0},
+    {"id": 6, "n": "Chicken Pasta", "c": "Main", "p": 15.50, "v": false, "s": 1},
+    {"id": 7, "n": "Spicy Buffalo Wings", "c": "Starter", "p": 9.99, "v": false, "s": 2},
+    {"id": 8, "n": "Veggie Stir Fry", "c": "Main", "p": 13.99, "v": true, "s": 2},
+    {"id": 9, "n": "Tiramisu", "c": "Dessert", "p": 7.99, "v": true, "s": 0},
+    {"id": 10, "n": "Ice Cream", "c": "Dessert", "p": 5.50, "v": true, "s": 0}
+  ]
+}
