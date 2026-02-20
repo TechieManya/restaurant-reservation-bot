@@ -1,6 +1,3 @@
-
----
-
 # 🍽️ Restaurant Reservation Bot (GUI)
 
 A modern **multi-page GUI application** for managing restaurant reservations with an intuitive interface.
@@ -135,8 +132,6 @@ Analytics including:
 * Welcome-back greeting
 * Remembers usual booking
 
----
-
 ### 📱 QR Code Generation
 
 Each booking generates a QR code containing:
@@ -146,25 +141,17 @@ Each booking generates a QR code containing:
 * Date & time
 * Party size
 
----
-
 ### ⏳ Waitlist Management
 
 Automatic waitlist when slots are full with unique IDs.
-
----
 
 ### 📊 Analytics Dashboard
 
 Real-time insights into booking patterns and preferences.
 
----
-
 ### 💾 Data Persistence
 
 All data stored in JSON files — survives restart.
-
----
 
 ### 🆔 Confirmation IDs
 
@@ -251,5 +238,3 @@ Educational project.
 ## 🤝 Contributing
 
 Open for improvements and learning.
-
-
