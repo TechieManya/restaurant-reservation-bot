@@ -1,3 +1,8 @@
-# No external dependencies - uses Python standard library only
+# GUI dependencies
+qrcode[pil]>=7.4.2
+Pillow>=10.0.0
+requests>=2.31.0
+
+# No other external dependencies - uses Python standard library only
 # Optional: uncomment for nicer terminal output
 # rich>=13.0.0

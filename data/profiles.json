@@ -1,1 +1,18 @@
-{}
+{
+  "987654321": {
+    "name": "haha",
+    "favorite_dish": "dosa",
+    "phone": "987654321",
+    "preferences": {
+      "party_size": 5
+    }
+  },
+  "1234567890": {
+    "name": "manya",
+    "favorite_dish": "type name",
+    "phone": "1234567890",
+    "preferences": {
+      "party_size": 2
+    }
+  }
+}

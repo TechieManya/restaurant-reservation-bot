@@ -3,7 +3,7 @@
 from menu import display_menu, recommend_dishes
 from availability import (
     get_available_slots, is_date_valid, get_slots_for_date,
-    get_today_str
+    get_today_str, get_available_dates,
 )
 from reservation import (
     create_reservation, cancel_by_id,
@@ -34,6 +34,10 @@ def detect_intent(text):
         return "slots"
     if any(w in t for w in ["stats", "statistics", "analytics"]):
         return "stats"
+    if any(w in t for w in ["today", "tonight"]):
+        return "today"
+    if any(w in t for w in ["dates", "calendar", "days"]):
+        return "dates"
     if any(w in t for w in ["help", "?"]):
         return "help"
     if any(w in t for w in ["quit", "exit", "bye"]):
@@ -51,6 +55,8 @@ def get_help_message():
   history          - View all reservations
   slots            - Show available booking times for a date
   stats            - Booking statistics
+  today            - Today's reservations
+  dates            - List all bookable dates
   modify           - Change a booking (using confirmation ID)
   cancel           - Cancel a reservation (using confirmation ID)
   help             - Show this message
@@ -412,6 +418,47 @@ def handle_stats(state):
     return "\n".join(lines), state
 
 
+def handle_today(state):
+    """Show today's reservations."""
+    from reservation import get_all_reservations
+
+    today = get_today_str()
+    reservations = [
+        r for r in get_all_reservations()
+        if r.get("date") == today
+    ]
+    if not reservations:
+        return f"No reservations for today ({today}).", state
+
+    lines = [f"\n--- Today's Reservations ({today}) ---"]
+    for r in reservations:
+        cid = r.get("id", "-")
+        lines.append(
+            f"  {cid} | {r.get('name', '?')} | "
+            f"{r.get('party', '?')} pax @ {r.get('time', '?')}"
+        )
+    lines.append("")
+    return "\n".join(lines), state
+
+
+def handle_dates(state):
+    """Show all dates we have availability data for."""
+    dates = get_available_dates()
+    if not dates:
+        return "No availability data configured yet.", state
+
+    today = get_today_str()
+    lines = ["\n--- Booking Dates ---"]
+    for d in dates:
+        marker = " (today)" if d == today else ""
+        lines.append(f"  {d}{marker}")
+    lines.append(
+        "\nTip: type 'slots' to see times for a specific date, "
+        "or 'book' to start a reservation."
+    )
+    return "\n".join(lines), state
+
+
 def process_input(user_input, state):
     """Process user input and return (response, new_state)."""
     state = state.copy()
@@ -445,6 +492,10 @@ def process_input(user_input, state):
         return handle_slots(state)
     if intent == "stats":
         return handle_stats(state)
+    if intent == "today":
+        return handle_today(state)
+    if intent == "dates":
+        return handle_dates(state)
     if intent == "modify":
         return handle_modify(state)
     if intent == "cancel":

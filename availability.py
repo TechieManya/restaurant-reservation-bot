@@ -8,7 +8,7 @@ from datetime import datetime, date
 AVAILABILITY_PATH = Path(__file__).parent / "data" / "availability.json"
 
 # Default slots when date not in availability.json - use for any date
-DEFAULT_SLOTS = {"18:00": 10, "19:00": 10, "20:00": 10, "21:00": 10}
+DEFAULT_SLOTS = {"12:00": 10, "13:00": 10, "14:00": 8, "15:00": 6, "17:00": 8, "18:00": 10, "19:00": 10, "20:00": 10, "21:00": 10, "22:00": 6}
 
 
 def load_availability():
