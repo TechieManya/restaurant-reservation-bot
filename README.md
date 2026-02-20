@@ -1,41 +1,255 @@
-# Restaurant Reservation Bot
 
-A CLI chatbot for making dining reservations using compressed menu data and availability schedules.
+---
 
-## Run
+# 🍽️ Restaurant Reservation Bot (GUI)
+
+A modern **multi-page GUI application** for managing restaurant reservations with an intuitive interface.
+The system supports table booking, menu browsing, personalized recommendations, waitlist management, QR code generation, and real-time analytics.
+
+---
+
+## 🚀 Quick Start
+
+### 1️⃣ Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Or manually:
+
+```bash
+pip install qrcode[pil] Pillow
+```
+
+### 2️⃣ Run the Application
 
 ```bash
 python main.py
 ```
 
-## Commands
+The GUI will open with a sidebar navigation and main content area.
 
-- **book** / **reserve** - Book a table (phone → welcome back for returning users)
-- **menu** - View the menu
-- **recommend** - Get dish suggestions (veg + spicy) + save preferences
-- **history** - View all reservations or filter by name
-- **slots** - Show available booking times for a date
-- **stats** - Booking statistics (total, most booked time, popular dish)
-- **modify** - Change a booking using confirmation ID
-- **cancel** - Cancel using confirmation ID (e.g. R1023)
-- **help** - Show commands
-- **quit** / **exit** - Exit
+---
 
-## Features
+## 📱 GUI Pages
 
-- **User Profiles** - Store name, phone, preferences. "Welcome back Name! Your usual 2-person spicy veg booking?"
-- **Slot Availability** - `slots` shows available times for any date
-- **Analytics** - `stats` shows total reservations, most booked time, popular dish
-- **Persistence** - All data saved in JSON files (survives program restart)
-- **Confirmation IDs** - Unique ID (e.g. R1023) for cancel/modify
+### 🏠 Home
 
-## Data Files (JSON - persistent)
+* Welcome message
+* Feature overview
+* Help guide
 
-- `data/menu.json` - Compressed menu
-- `data/availability.json` - Time slots per date
-- `data/reservations.json` - Bookings
-- `data/profiles.json` - User profiles (name, phone, preferences)
+### 📅 Book Table
 
-## Requirements
+* Phone number (optional → profile recognition)
+* Party size (1–10 people)
+* Date selection (YYYY-MM-DD or “today”)
+* Time slot loading
+* Name entry
 
-Python 3.7+. No external packages required.
+**Extras**
+
+* QR code generation after booking
+* Waitlist option when slots are full
+
+---
+
+### 🍕 Menu
+
+30+ dishes across categories:
+
+* Pizza (5)
+* Starters (7)
+* Main Courses (12)
+* Desserts (6)
+
+**Visual indicators**
+
+* Vegetarian items (green)
+* Spice level labels
+* Category color coding
+
+---
+
+### 💡 Recommendations
+
+Personalized suggestions based on:
+
+* Veg / Non-veg preference
+* Spice level
+
+Preferences are saved for returning users.
+
+---
+
+### ⏰ Slots
+
+Displays available time slots for selected date.
+
+---
+
+### 📋 Today’s Bookings
+
+Quick overview of daily reservations.
+
+---
+
+### 📆 Available Dates
+
+Shows dates with booking availability and highlights today.
+
+---
+
+### 📜 History
+
+* View all reservations
+* Filter by customer name
+
+---
+
+### ⏳ Waitlist
+
+* Manage waitlist entries
+* Filter by date/time
+* Unique waitlist IDs
+
+---
+
+### 📊 Statistics
+
+Analytics including:
+
+* Total reservations
+* Most booked time
+* Popular dishes
+* Common party size
+
+---
+
+## ✨ Key Features
+
+### 🎯 User Profiles
+
+* Stores name, phone, preferences
+* Welcome-back greeting
+* Remembers usual booking
+
+---
+
+### 📱 QR Code Generation
+
+Each booking generates a QR code containing:
+
+* Reservation ID
+* Customer name
+* Date & time
+* Party size
+
+---
+
+### ⏳ Waitlist Management
+
+Automatic waitlist when slots are full with unique IDs.
+
+---
+
+### 📊 Analytics Dashboard
+
+Real-time insights into booking patterns and preferences.
+
+---
+
+### 💾 Data Persistence
+
+All data stored in JSON files — survives restart.
+
+---
+
+### 🆔 Confirmation IDs
+
+Unique reservation IDs (R1000+) for modify/cancel.
+
+---
+
+## 📁 Data Files
+
+Located in the `data/` directory:
+
+* `menu.json` → Menu items
+* `availability.json` → Slots & capacity
+* `reservations.json` → Bookings
+* `profiles.json` → Customer profiles
+* `waitlist.json` → Waitlist entries
+
+---
+
+## 🕐 Time Slots
+
+Lunch: 12:00 – 15:00
+Dinner: 17:00 – 22:00
+
+10 slots per day with configurable capacity.
+
+---
+
+## 🛠️ Tech Stack
+
+* Python
+* Tkinter (GUI)
+* JSON (persistence)
+* Pillow (image processing)
+* QRCode library
+
+Fully self-contained — no external APIs.
+
+---
+
+## 🎨 UI Highlights
+
+* Dark theme interface
+* Color-coded navigation
+* Responsive layout
+* Scrollable content
+* Quick action buttons
+
+---
+
+## 📝 Example Workflow
+
+**Booking**
+
+1. Book Table → Enter details
+2. Load slots → Select time
+3. Confirm booking
+4. QR code generated
+
+**Recommendations**
+
+1. Choose preferences
+2. Get dish suggestions
+3. Save for future use
+
+---
+
+## 🔮 Future Improvements
+
+* AI-based recommendations
+* Online booking integration
+* Payments
+* Notifications
+* Cloud database
+
+---
+
+## 📄 License
+
+Educational project.
+
+---
+
+## 🤝 Contributing
+
+Open for improvements and learning.
+
+
